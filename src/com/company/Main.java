@@ -28,10 +28,9 @@ public class Main {
 
             // If the current string has reached it's maximum length
             if(curr.length() == maxLength) {
-                if(StringExcersise.check_Letter(curr, 'L') < 2){
-                    //Run further tests on the String Here for other limiting factors
+                if(StringExcersise.check_Letter(curr, 'L') == 2){
+                    System.out.println(curr);
                 }
-                System.out.println(curr);
 
                 // Else add each letter from the alphabet to new strings and process these new strings again
             } else {
