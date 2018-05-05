@@ -1,18 +1,20 @@
 package com.company;
 import java.util.Scanner;
+import java.util.ArrayList;
 
 public class Main {
 
-    public static void main(String[] args) {
-        Scanner scanInput = new Scanner(System.in); //Allows user input from cmd
+     public static void main(String[] args) {
+         //Setup Stuff
+        Scanner scanInput = new Scanner(System.in);
+        char[] attendenceRec = new char[] {'A', 'L','O'};
 
-            //Ask the user for their input
-            System.out.println("Hello, this is a semi-modular solution to the Project Euler problem #191, how many days would you like to solve for?");
-            int numDays = Integer.parseInt(scanInput.nextLine());
+         //Gets the number to solve for
+        System.out.println("Hello, this is a semi-modular solution to the Project Euler problem #191, how many days would you like to solve for?");
+        int numDays = Integer.parseInt(scanInput.nextLine());
 
-            //Defines the Letters
-            char[] attendenceRec = new char[] {'A', 'L','O'};
-            StringExcersise.possibleStrings(numDays, attendenceRec, "");
+        //Solves the number of valid combos
+        StringExcersise.possibleStrings(numDays, attendenceRec, "");
      }
     }
 
@@ -23,13 +25,17 @@ public class Main {
     //A Class to hold all the possible operations I can do on a string
     class StringExcersise {
 
+
         //Finds all the permutations of a string
         public static void possibleStrings(int maxLength, char[] alphabet, String curr) {
 
+            ArrayList<String> reward = new ArrayList<String>();
+
             // If the current string has reached it's maximum length
             if(curr.length() == maxLength) {
-                if(StringExcersise.check_Letter(curr, 'L') == 2){
-                    System.out.println(curr);
+                if(StringExcersise.check_Letter(curr, 'L') <= 1){ //If the string is valid
+                    reward.add(curr);
+                    System.out.println(reward); //Testing purposes
                 }
 
                 // Else add each letter from the alphabet to new strings and process these new strings again
@@ -44,7 +50,7 @@ public class Main {
         }
 
 
-        //Checks a String fro how many times a certain letter occurs
+        //Checks a String for how many times a certain letter occurs
         public static int check_Letter (String base, char check){
             int counter = 0;
             for( int i=0; i<base.length(); i++ ) {
@@ -54,6 +60,8 @@ public class Main {
             }
             return counter;
         }
+
     }
+
 
 
