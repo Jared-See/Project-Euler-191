@@ -28,7 +28,6 @@ public class Main {
 
         //Finds all the permutations of a string
         public static void possibleStrings(int maxLength, char[] alphabet, String curr) {
-
             ArrayList<String> reward = new ArrayList<String>();
 
             // If the current string has reached it's maximum length
@@ -59,6 +58,15 @@ public class Main {
                 }
             }
             return counter;
+        }
+
+        public static boolean letter_builder(String base){
+            int numAbsent = 0;
+            if(numAbsent < 3){
+                return true;
+            } else{
+                return false;
+            }
         }
 
     }
