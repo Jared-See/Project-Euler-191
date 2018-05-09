@@ -14,7 +14,7 @@ public class Main {
         int numDays = Integer.parseInt(scanInput.nextLine());
 
         //Solves the number of valid combos
-        StringExcersise.possibleStrings(numDays, attendenceRec, "");
+       StringExcersise.possibleStrings(numDays, attendenceRec, "");
      }
     }
 
@@ -62,11 +62,20 @@ public class Main {
 
         public static boolean letter_builder(String base){
             int numAbsent = 0;
-            if(numAbsent < 3){
-                return true;
-            } else{
-                return false;
+            for (int i = 0; i <= base.length(); i++){
+                char check = base.charAt(i);
+                System.out.println(check);
+                if(check == 'A'){
+                    numAbsent++;
+                }else{
+                    numAbsent = 0;
+                }
+
+                if(numAbsent == 3){
+                    return false;
+                }
             }
+            return true;
         }
 
     }
