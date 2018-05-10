@@ -10,11 +10,15 @@ public class Main {
         char[] attendenceRec = new char[] {'A', 'L','O'};
 
          //Gets the number to solve for
-        System.out.println("Hello, this is a semi-modular solution to the Project Euler problem #191, how many days would you like to solve for?");
-        int numDays = Integer.parseInt(scanInput.nextLine());
-
+        //System.out.println("Hello, this is a semi-modular solution to the Project Euler problem #191, how many days would you like to solve for?");
+        //int numDays = Integer.parseInt(scanInput.nextLine());
+        if(StringExcersise.letter_builder("Hello")){
+            System.out.print("True");
+        }else{
+            System.out.print("False");
+        }
         //Solves the number of valid combos
-       StringExcersise.possibleStrings(numDays, attendenceRec, "");
+       //StringExcersise.possibleStrings(numDays, attendenceRec, "");
      }
     }
 
@@ -64,15 +68,17 @@ public class Main {
             int numAbsent = 0;
             for (int i = 0; i <= base.length(); i++){
                 char check = base.charAt(i);
+
                 System.out.println(check);
+
                 if(check == 'A'){
                     numAbsent++;
+
+                    if(numAbsent == 3){
+                        return false;
+                    }
                 }else{
                     numAbsent = 0;
-                }
-
-                if(numAbsent == 3){
-                    return false;
                 }
             }
             return true;
