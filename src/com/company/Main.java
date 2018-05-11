@@ -9,10 +9,10 @@ public class Main {
         Scanner scanInput = new Scanner(System.in);
         char[] attendenceRec = new char[] {'A', 'L','O'};
 
-         //Gets the number to solve for
+        //Gets the number to solve for
         //System.out.println("Hello, this is a semi-modular solution to the Project Euler problem #191, how many days would you like to solve for?");
         //int numDays = Integer.parseInt(scanInput.nextLine());
-        if(StringExcersise.letter_builder("Hello")){
+        if(StringExcersise.letter_builder("AAA")){
             System.out.print("True");
         }else{
             System.out.print("False");
@@ -66,7 +66,7 @@ public class Main {
 
         public static boolean letter_builder(String base){
             int numAbsent = 0;
-            for (int i = 0; i <= base.length(); i++){
+            for (int i = 0; i < base.length(); i++){
                 char check = base.charAt(i);
 
                 System.out.println(check);
