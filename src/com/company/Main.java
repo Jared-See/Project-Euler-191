@@ -12,9 +12,9 @@ public class Main {
         System.out.println("Hello, this is a semi-modular solution to the Project Euler problem #191, how many days would you like to solve for?");
         int numDays = Integer.parseInt(scanInput.nextLine());
 
-        StringExcersise.possibleStrings(numDays, attendenceRec, "" );
+       StringExcersise.possibleStrings(numDays, attendenceRec, "" );
      }
-    }
+}
 
 
 
@@ -26,12 +26,14 @@ public class Main {
 
         //Finds all the permutations of a string
         public static void possibleStrings(int maxLength, char[] alphabet, String curr) {
-            ArrayList<String> reward = new ArrayList<String>();
-
+            //ArrayList<String> reward = new ArrayList<>();
+            int numValid = 0;
             // If the current string has reached it's maximum length
             if(curr.length() == maxLength) {
                 if(StringExcersise.valid(curr)){ //If the string is valid
-                    reward.add(curr);
+                    //reward.add(curr);
+                    numValid ++;
+                    System.out.println(curr);
                 }
 
                 // Else add each letter from the alphabet to new strings and process these new strings again
@@ -43,8 +45,7 @@ public class Main {
                     curr = oldCurr;
                 }
             }
-
-           System.out.print(reward.size());
+           //System.out.print(reward.size());
         }
 
 
@@ -53,7 +54,7 @@ public class Main {
 
 
         //Checks a String for how many times a certain letter occurs
-        public static int check_Letter (String base, char check){
+        public static int check_Letter (String base, char check){ //Checks for Latews
             int counter = 0;
             for( int i=0; i<base.length(); i++ ) {
                 if( base.charAt(i) == check ) {
@@ -63,7 +64,7 @@ public class Main {
             return counter;
         }
 
-        public static boolean letter_builder(String base){
+        public static boolean letter_builder(String base){ //Checks for letters in a row
             int numAbsent = 0;
             for (int i = 0; i < base.length(); i++){
                 char check = base.charAt(i);
