@@ -9,16 +9,10 @@ public class Main {
         Scanner scanInput = new Scanner(System.in);
         char[] attendenceRec = new char[] {'A', 'L','O'};
 
-        //Gets the number to solve for
-        //System.out.println("Hello, this is a semi-modular solution to the Project Euler problem #191, how many days would you like to solve for?");
-        //int numDays = Integer.parseInt(scanInput.nextLine());
-        if(StringExcersise.letter_builder("AAA")){
-            System.out.print("True");
-        }else{
-            System.out.print("False");
-        }
-        //Solves the number of valid combos
-       //StringExcersise.possibleStrings(numDays, attendenceRec, "");
+        System.out.println("Hello, this is a semi-modular solution to the Project Euler problem #191, how many days would you like to solve for?");
+        int numDays = Integer.parseInt(scanInput.nextLine());
+
+        StringExcersise.possibleStrings(numDays, attendenceRec, "" );
      }
     }
 
@@ -36,9 +30,8 @@ public class Main {
 
             // If the current string has reached it's maximum length
             if(curr.length() == maxLength) {
-                if(StringExcersise.check_Letter(curr, 'L') <= 1){ //If the string is valid
+                if(StringExcersise.valid(curr)){ //If the string is valid
                     reward.add(curr);
-                    System.out.println(reward); //Testing purposes
                 }
 
                 // Else add each letter from the alphabet to new strings and process these new strings again
@@ -50,7 +43,13 @@ public class Main {
                     curr = oldCurr;
                 }
             }
+
+           System.out.print(reward.size());
         }
+
+
+
+
 
 
         //Checks a String for how many times a certain letter occurs
@@ -69,8 +68,6 @@ public class Main {
             for (int i = 0; i < base.length(); i++){
                 char check = base.charAt(i);
 
-                System.out.println(check);
-
                 if(check == 'A'){
                     numAbsent++;
 
@@ -82,6 +79,19 @@ public class Main {
                 }
             }
             return true;
+        }
+
+
+
+
+
+        //Finds if a string is "reward worthy"
+        public static boolean valid(String base){
+            if(StringExcersise.letter_builder(base) && StringExcersise.check_Letter(base, 'L') < 3){
+                return true;
+            }else{
+                return false;
+            }
         }
 
     }
