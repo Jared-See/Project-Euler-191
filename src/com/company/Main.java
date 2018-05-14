@@ -30,14 +30,8 @@ public class Main {
             int numValid = 0;
             // If the current string has reached it's maximum length
             if(curr.length() == maxLength) {
-                if(StringExcersise.valid(curr)){ //If the string is valid
-                    //reward.add(curr);
-                    numValid ++;
-                    System.out.println(curr);
-                }
-
-                // Else add each letter from the alphabet to new strings and process these new strings again
-            } else {
+                System.out.println(curr);
+            } else { // Else add each letter from the alphabet to new strings and process these new strings again
                 for(int i = 0; i < alphabet.length; i++) {
                     String oldCurr = curr;
                     curr += alphabet[i];
