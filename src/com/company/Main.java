@@ -12,7 +12,7 @@ public class Main {
         System.out.println("Hello, this is a semi-modular solution to the Project Euler problem #191, how many days would you like to solve for?");
         int numDays = Integer.parseInt(scanInput.nextLine());
 
-       StringExcersise.possibleStrings(numDays, attendenceRec, "" );
+       StringExcersise.possibleStrings(numDays, attendenceRec, "", 0 );
      }
 }
 
@@ -25,21 +25,20 @@ public class Main {
 
 
         //Finds all the permutations of a string
-        public static void possibleStrings(int maxLength, char[] alphabet, String curr) {
-            //ArrayList<String> reward = new ArrayList<>();
-            int numValid = 0;
+        public static void possibleStrings(int maxLength, char[] alphabet, String curr, int numValid) {
             // If the current string has reached it's maximum length
             if(curr.length() == maxLength) {
-                System.out.println(curr);
+                if(StringExcersise.valid(curr)){
+                    numValid++;
+                }
             } else { // Else add each letter from the alphabet to new strings and process these new strings again
                 for(int i = 0; i < alphabet.length; i++) {
                     String oldCurr = curr;
                     curr += alphabet[i];
-                    possibleStrings(maxLength,alphabet,curr);
+                    possibleStrings(maxLength,alphabet,curr, 0);
                     curr = oldCurr;
                 }
             }
-           //System.out.print(reward.size());
         }
 
 
@@ -48,7 +47,7 @@ public class Main {
 
 
         //Checks a String for how many times a certain letter occurs
-        public static int check_Letter (String base, char check){ //Checks for Latews
+        public static int check_Letter (String base, char check){ //Checks for Lates
             int counter = 0;
             for( int i=0; i<base.length(); i++ ) {
                 if( base.charAt(i) == check ) {
