@@ -13,7 +13,7 @@ public class Main {
         int numDays = Integer.parseInt(scanInput.nextLine());
 
        StringExcersise.possibleStrings(numDays, attendenceRec, "", 0 );*/
-        if(StringExcersise.letter_builder("wAAwAw")){
+        if(StringExcersise.check_Letter("osdLfosdfL", 'L') < 2){
             System.out.println("true");
         }else{
             System.out.println("false");
