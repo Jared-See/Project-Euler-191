@@ -6,13 +6,18 @@ public class Main {
 
      public static void main(String[] args) {
          //Setup Stuff
-        Scanner scanInput = new Scanner(System.in);
+        /*Scanner scanInput = new Scanner(System.in);
         char[] attendenceRec = new char[] {'A', 'L','O'};
 
         System.out.println("Hello, this is a semi-modular solution to the Project Euler problem #191, how many days would you like to solve for?");
         int numDays = Integer.parseInt(scanInput.nextLine());
 
-       StringExcersise.possibleStrings(numDays, attendenceRec, "", 0 );
+       StringExcersise.possibleStrings(numDays, attendenceRec, "", 0 );*/
+        if(StringExcersise.letter_builder("wAAwAw")){
+            System.out.println("true");
+        }else{
+            System.out.println("false");
+        }
      }
 }
 
@@ -28,8 +33,10 @@ public class Main {
         public static void possibleStrings(int maxLength, char[] alphabet, String curr, int numValid) {
             // If the current string has reached it's maximum length
             if(curr.length() == maxLength) {
+                System.out.println(curr);
                 if(StringExcersise.valid(curr)){
                     numValid++;
+                    //System.out.println(numValid);
                 }
             } else { // Else add each letter from the alphabet to new strings and process these new strings again
                 for(int i = 0; i < alphabet.length; i++) {
